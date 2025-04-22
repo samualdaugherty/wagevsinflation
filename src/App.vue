@@ -116,8 +116,21 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref, computed, nextTick } from 'vue'
+
+interface FormData {
+  month: string
+  year: string
+  startingSalary: string
+  currentSalary: string
+}
+
+interface CPIData {
+  year: string
+  period: string
+  value: string
+}
 
 const month = ref('')
 const year = ref('')
@@ -128,7 +141,7 @@ const adjustedStartingWage = ref('')
 const changePercentage = ref('')
 const resultType = ref('')
 const isLoading = ref(false)
-const error = ref(null)
+const error = ref<string | null>(null)
 
 const months = [
   'January', 'February', 'March', 'April', 'May', 'June',
@@ -171,18 +184,10 @@ const validateForm = () => {
   return true
 }
 
-const calculateInflationAdjustment = async (startYear, startMonth, amount) => {
+const calculateInflationAdjustment = async (startYear: number, startMonth: number, amount: number): Promise<number> => {
   try {
     const currentYear = new Date().getFullYear()
     
-    // Log input parameters
-    console.log('Calculation Input Parameters:', {
-      startYear,
-      startMonth,
-      amount,
-      currentYear
-    })
-
     console.log('Making API request to proxy server...')
 
     const response = await fetch('http://localhost:3000/api/inflation', {
@@ -209,23 +214,20 @@ const calculateInflationAdjustment = async (startYear, startMonth, amount) => {
       throw new Error(`API request failed: ${data.message || 'Unknown error'}`)
     }
 
-    // Get the CPI values for start and end dates
     const series = data.Results?.series[0]
     if (!series || !series.data) {
       throw new Error('No CPI data found in API response')
     }
 
-    // Sort data by date
-    const sortedData = series.data.sort((a, b) => {
+    const sortedData = series.data.sort((a: CPIData, b: CPIData) => {
       const yearDiff = parseInt(b.year) - parseInt(a.year)
       if (yearDiff !== 0) return yearDiff
       return parseInt(b.period.substring(1)) - parseInt(a.period.substring(1))
     })
 
-    console.log('Available data points:', sortedData.map(d => `${d.year}-${d.period}: ${d.value}`))
+    console.log('Available data points:', sortedData.map((d: CPIData) => `${d.year}-${d.period}: ${d.value}`))
 
-    // Find the CPI values
-    const startCPI = sortedData.find(d => {
+    const startCPI = sortedData.find((d: CPIData) => {
       return parseInt(d.year) === startYear && 
              parseInt(d.period.substring(1)) === startMonth
     })
@@ -241,7 +243,6 @@ const calculateInflationAdjustment = async (startYear, startMonth, amount) => {
       throw new Error(`Could not find CPI data for ${startYear}-${startMonth} or current period`)
     }
 
-    // Calculate the inflation-adjusted value
     const inflationFactor = parseFloat(currentCPI.value) / parseFloat(startCPI.value)
     const adjustedAmount = amount * inflationFactor
 
@@ -254,20 +255,19 @@ const calculateInflationAdjustment = async (startYear, startMonth, amount) => {
     })
 
     return adjustedAmount
-  } catch (err) {
+  } catch (err: unknown) {
     console.error('Detailed error in calculateInflationAdjustment:', {
-      error: err.message,
-      stack: err.stack
+      error: err instanceof Error ? err.message : 'Unknown error',
+      stack: err instanceof Error ? err.stack : undefined
     })
     throw err
   }
 }
 
-const determineResultType = (percentageChange) => {
-  const change = parseFloat(percentageChange)
-  if (change <= -5) {
+const determineResultType = (percentageChange: number): string => {
+  if (percentageChange <= -5) {
     return 'low'
-  } else if (change >= 5) {
+  } else if (percentageChange >= 5) {
     return 'high'
   } else {
     return 'average'
@@ -385,7 +385,7 @@ const getFollowupText = () => {
   }
 }
 
-const formatCurrency = (amount) => {
+const formatCurrency = (amount: number): string => {
   return new Intl.NumberFormat('en-US', {
     style: 'currency',
     currency: 'USD',
