@@ -344,8 +344,9 @@ const calculateResults = async () => {
     // Convert month name to number
     const monthNumber = months.indexOf(month.value) + 1
     const yearNumber = parseInt(year.value)
-    const startingAmount = parseFloat(startingSalary.value)
-    const currentAmount = parseFloat(currentSalary.value)
+    // Remove commas before parsing the salary values
+    const startingAmount = parseFloat(startingSalary.value.replace(/,/g, ''))
+    const currentAmount = parseFloat(currentSalary.value.replace(/,/g, ''))
 
     // Get inflation-adjusted starting salary
     const adjustedStartingAmount = await calculateInflationAdjustment(
@@ -397,7 +398,8 @@ const getVerdict = () => {
 const getChangeText = () => {
   // Parse the numeric values and remove currency formatting and commas
   const currentAmount = parseFloat(currentSalary.value.replace(/[^0-9.-]+/g, ''));
-  const adjustedStartAmount = parseFloat(adjustedStartingWage.value.replace(/[^0-9.-]+/g, ''));
+  // For adjustedStartingWage, we only need to remove the currency symbol since it's already formatted by formatCurrency
+  const adjustedStartAmount = parseFloat(adjustedStartingWage.value.replace(/[$€£¥]/g, '').replace(/,/g, ''));
   const percentChange = ((currentAmount - adjustedStartAmount) / adjustedStartAmount) * 100;
   
   console.log('Change calculation:', {
