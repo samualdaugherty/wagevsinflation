@@ -313,7 +313,7 @@ const calculateInflationAdjustment = async (startYear: number, startMonth: numbe
 const determineResultType = (percentageChange: number): string => {
   if (percentageChange <= -5) {
     return 'low'
-  } else if (percentageChange >= 5) {
+  } else if (percentageChange >= 8) {
     return 'high'
   } else {
     return 'average'
