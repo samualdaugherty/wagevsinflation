@@ -188,9 +188,9 @@ const calculateInflationAdjustment = async (startYear: number, startMonth: numbe
   try {
     const currentYear = new Date().getFullYear()
     
-    console.log('Making API request to proxy server...')
+    console.log('Making API request...')
 
-    const response = await fetch('http://localhost:3000/api/inflation', {
+    const response = await fetch('/api/inflation', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
