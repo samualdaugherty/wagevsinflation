@@ -2,7 +2,7 @@
   <div class="app-container">
     <div class="left-panel">
       <div class="content-wrapper">
-        <img src="./assets/logo.png" alt="Wage vs Inflation" class="logo">
+        <img src="./assets/LOGO.png" alt="Wage vs Inflation" class="logo">
         
         <p class="instructions">
           Using this page is pretty simple. Just answer a couple of questions and the
