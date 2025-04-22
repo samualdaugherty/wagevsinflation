@@ -168,8 +168,9 @@ const validateForm = () => {
     return false
   }
 
-  const startingSalaryNum = parseFloat(startingSalary.value)
-  const currentSalaryNum = parseFloat(currentSalary.value)
+  // Remove commas before parsing
+  const startingSalaryNum = parseFloat(startingSalary.value.replace(/,/g, ''))
+  const currentSalaryNum = parseFloat(currentSalary.value.replace(/,/g, ''))
   
   if (isNaN(startingSalaryNum) || startingSalaryNum <= 0) {
     error.value = 'Please enter a valid starting salary'
@@ -349,7 +350,7 @@ const getVerdict = () => {
 }
 
 const getChangeText = () => {
-  // Parse the numeric values and remove currency formatting
+  // Parse the numeric values and remove currency formatting and commas
   const currentAmount = parseFloat(currentSalary.value.replace(/[^0-9.-]+/g, ''));
   const adjustedStartAmount = parseFloat(adjustedStartingWage.value.replace(/[^0-9.-]+/g, ''));
   const percentChange = ((currentAmount - adjustedStartAmount) / adjustedStartAmount) * 100;
