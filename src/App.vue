@@ -37,7 +37,13 @@
           <div class="form-group">
             <label>When I started, my annual income was</label>
             <div class="inline-inputs">
-              <input type="text" v-model="startingSalary" placeholder="dollars" required>
+              <input 
+                type="text" 
+                v-model="startingSalary"
+                @input="handleStartingSalaryInput"
+                placeholder="dollars" 
+                required
+              >
               <span>per year.</span>
             </div>
           </div>
@@ -45,7 +51,13 @@
           <div class="form-group">
             <label>Now, my income is</label>
             <div class="inline-inputs">
-              <input type="text" v-model="currentSalary" placeholder="dollars" required>
+              <input 
+                type="text" 
+                v-model="currentSalary"
+                @input="handleCurrentSalaryInput"
+                placeholder="dollars" 
+                required
+              >
               <span>per year.</span>
             </div>
           </div>
@@ -117,7 +129,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, nextTick } from 'vue'
+import { ref, computed, nextTick, type Ref } from 'vue'
 
 interface FormData {
   month: string
@@ -143,6 +155,10 @@ const resultType = ref('')
 const isLoading = ref(false)
 const error = ref<string | null>(null)
 
+// Add refs for the input elements
+const startingSalaryInput = ref<HTMLInputElement | null>(null)
+const currentSalaryInput = ref<HTMLInputElement | null>(null)
+
 const months = [
   'January', 'February', 'March', 'April', 'May', 'June',
   'July', 'August', 'September', 'October', 'November', 'December'
@@ -156,6 +172,35 @@ const validYearRange = computed(() => {
   }
 })
 
+// Format number with commas
+const formatNumber = (value: string): string => {
+  // Remove any non-digit characters except decimal point
+  const cleanValue = value.replace(/[^\d.]/g, '')
+  
+  // Split into whole and decimal parts
+  const [whole, decimal] = cleanValue.split('.')
+  
+  // Add commas to whole number part
+  const formattedWhole = whole.replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+  
+  // Return with decimal if it exists
+  return decimal ? `${formattedWhole}.${decimal}` : formattedWhole
+}
+
+// Handle starting salary input
+const handleStartingSalaryInput = (event: Event) => {
+  const input = event.target as HTMLInputElement
+  const cleanValue = input.value.replace(/[$€£¥]/g, '').trim()
+  startingSalary.value = formatNumber(cleanValue)
+}
+
+// Handle current salary input
+const handleCurrentSalaryInput = (event: Event) => {
+  const input = event.target as HTMLInputElement
+  const cleanValue = input.value.replace(/[$€£¥]/g, '').trim()
+  currentSalary.value = formatNumber(cleanValue)
+}
+
 const validateForm = () => {
   if (!months.includes(month.value)) {
     error.value = 'Please enter a valid month (e.g., January)'
@@ -168,9 +213,9 @@ const validateForm = () => {
     return false
   }
 
-  // Remove commas before parsing
-  const startingSalaryNum = parseFloat(startingSalary.value.replace(/,/g, ''))
-  const currentSalaryNum = parseFloat(currentSalary.value.replace(/,/g, ''))
+  // Remove currency symbols and commas before parsing
+  const startingSalaryNum = parseFloat(startingSalary.value.replace(/[$€£¥,]/g, ''))
+  const currentSalaryNum = parseFloat(currentSalary.value.replace(/[$€£¥,]/g, ''))
   
   if (isNaN(startingSalaryNum) || startingSalaryNum <= 0) {
     error.value = 'Please enter a valid starting salary'
