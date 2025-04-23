@@ -727,6 +727,10 @@ h2 {
     width: 100%;
     max-width: none;
   }
+
+  .logo {
+    width: 200px;
+  }
 }
 
 /* Desktop/Large styles */
@@ -736,10 +740,9 @@ h2 {
     position: sticky;
     top: 0;
     overflow-y: hidden;
-    /* Fixed 50vw width */
     width: 50vw;
     flex: none;
-    padding: 4rem; /* Explicitly set desktop padding */
+    padding: 4rem;
     box-shadow: 51px 0px 80px 0px rgba(0, 0, 0, 0.12),
                 33.056px 0px 46.852px 0px rgba(0, 0, 0, 0.09),
                 19.644px 0px 25.481px 0px rgba(0, 0, 0, 0.07),
@@ -749,10 +752,9 @@ h2 {
   }
 
   .right-panel {
-    /* Fixed 50vw width */
     width: 50vw;
     flex: none;
-    padding: 4rem; /* Explicitly set desktop padding */
+    padding: 4rem;
   }
 
   .left-panel .content-wrapper {
@@ -760,6 +762,10 @@ h2 {
     display: flex;
     flex-direction: column;
     justify-content: center;
+  }
+
+  .logo {
+    width: 200px;
   }
 }
 
