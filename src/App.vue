@@ -122,6 +122,82 @@
           <p class="results-text">
             {{ getFollowupText() }}
           </p>
+
+          <!-- Help content for low and average verdicts -->
+          <div v-if="resultType === 'low' || resultType === 'average'" class="help-content">
+            <section class="help-section">
+              <h2>What does all this mean?</h2>
+              <p>
+                Wage stagnation is a widespread issue affecting many people today.
+                When annual raises are calculated as a percentage of your current
+                salary, they often struggle to keep pace with the rising cost of living.
+              </p>
+              <p>
+                For over half of Americans, wages haven't even kept up with inflation—
+                meaning they lose buying power year after year. And those losses don't
+                just stay flat—they compound over time.
+              </p>
+              <p>
+                If you feel like you're making less than when you started, it's likely inflation
+                has steadily eroded your gains. In terms of real quality of life, that means
+                you're actually worse off today.
+              </p>
+            </section>
+
+            <section class="help-section">
+              <h2>What can I do next?</h2>
+              <p>
+                If someone has the data to show their wages aren't keeping up with
+                inflation, they're in a much stronger position to take action. Here are
+                some practical steps they can take:
+              </p>
+              <ol class="action-steps">
+                <li>
+                  <h3>Use the Data to Start a Conversation</h3>
+                  <ul>
+                    <li>Bring it to your manager or HR department during a performance or compensation review.</li>
+                    <li>Frame it as "Here's how my wages have changed relative to inflation—I'd like to talk about how we can close that gap."</li>
+                    <li>Keep it professional and fact-based, not emotional. You're not just asking for a raise—you're advocating for fair compensation.</li>
+                    <li>Financial expert and author, Ramit Sethi, has a great video on how to negotiate for a raise, including scripts you can follow here.</li>
+                  </ul>
+                </li>
+                <li>
+                  <h3>Talk to Peers & Mentors</h3>
+                  <ul>
+                    <li>Compare notes (confidentially) with trusted colleagues or mentors.</li>
+                    <li>If you're far below the market rate, you may be underpaid across the board—not just relative to inflation.</li>
+                  </ul>
+                </li>
+                <li>
+                  <h3>Research Market Rates</h3>
+                  <ul>
+                    <li>Use sites like Glassdoor, Payscale, or Levels.fyi to see what others in similar roles are earning in your industry and region.</li>
+                    <li>Having market data alongside your inflation data can strengthen your case for a raise and help range.</li>
+                  </ul>
+                </li>
+                <li>
+                  <h3>Upskill or Specialize</h3>
+                  <ul>
+                    <li>If raises aren't happening where you are, consider growing your skills—certifications, courses, or projects that increase your value in the job market.</li>
+                    <li>Wage stagnation can sometimes be a company issue, not a you issue.</li>
+                  </ul>
+                </li>
+                <li>
+                  <h3>Explore Other Opportunities</h3>
+                  <ul>
+                    <li>Sometimes, the best leverage comes from external offers.</li>
+                    <li>If your current employer won't adjust, others might.</li>
+                  </ul>
+                </li>
+                <li>
+                  <h3>Know Your Rights</h3>
+                  <ul>
+                    <li>In some states or countries, pay transparency laws are improving—know what you're legally entitled to and what your company must disclose.</li>
+                  </ul>
+                </li>
+              </ol>
+            </section>
+          </div>
         </div>
       </div>
     </div>
@@ -775,5 +851,67 @@ datalist {
 
 input[list] {
   position: relative;
+}
+
+.help-content {
+  margin-top: 4rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  padding-top: 4rem;
+}
+
+.help-section {
+  margin-bottom: 3rem;
+}
+
+.help-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  font-weight: 900;
+  letter-spacing: -0.03em;
+}
+
+.help-section p {
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.action-steps {
+  list-style: none;
+  padding: 0;
+  counter-reset: step-counter;
+}
+
+.action-steps > li {
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.action-steps h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.action-steps ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.action-steps ul li {
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+}
+
+/* Mobile adjustments */
+@media (max-width: 996px) {
+  .help-section h2 {
+    font-size: 2rem;
+  }
+
+  .help-content {
+    margin-top: 3rem;
+    padding-top: 3rem;
+  }
 }
 </style>
