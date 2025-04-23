@@ -694,15 +694,42 @@ h2 {
   }
 }
 
-/* Desktop styles */
-@media (min-width: 997px) {
+/* Tablet/Medium styles */
+@media (min-width: 997px) and (max-width: 1199px) {
+  .left-panel,
+  .right-panel {
+    padding: 3rem;
+    /* Allow flexible width, remove fixed 50vw */
+    width: auto;
+    flex: 1;
+  }
+
+  .left-panel {
+    /* Keep sticky positioning and shadow from desktop, but allow flex width */
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    overflow-y: hidden;
+    box-shadow: 51px 0px 80px 0px rgba(0, 0, 0, 0.12),
+                33.056px 0px 46.852px 0px rgba(0, 0, 0, 0.09),
+                19.644px 0px 25.481px 0px rgba(0, 0, 0, 0.07),
+                10.2px 0px 13px 0px rgba(0, 0, 0, 0.06),
+                4.156px 0px 6.519px 0px rgba(0, 0, 0, 0.05),
+                0.944px 0px 3.148px 0px rgba(0, 0, 0, 0.03);
+  }
+}
+
+/* Desktop/Large styles */
+@media (min-width: 1200px) {
   .left-panel {
     height: 100vh;
     position: sticky;
     top: 0;
     overflow-y: hidden;
+    /* Fixed 50vw width */
     width: 50vw;
     flex: none;
+    padding: 4rem; /* Explicitly set desktop padding */
     box-shadow: 51px 0px 80px 0px rgba(0, 0, 0, 0.12),
                 33.056px 0px 46.852px 0px rgba(0, 0, 0, 0.09),
                 19.644px 0px 25.481px 0px rgba(0, 0, 0, 0.07),
@@ -712,8 +739,10 @@ h2 {
   }
 
   .right-panel {
+    /* Fixed 50vw width */
     width: 50vw;
     flex: none;
+    padding: 4rem; /* Explicitly set desktop padding */
   }
 
   .left-panel .content-wrapper {
