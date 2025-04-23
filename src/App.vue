@@ -717,6 +717,16 @@ h2 {
                 4.156px 0px 6.519px 0px rgba(0, 0, 0, 0.05),
                 0.944px 0px 3.148px 0px rgba(0, 0, 0, 0.03);
   }
+
+  .form-group {
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+
+  .inline-inputs {
+    width: 100%;
+    max-width: none;
+  }
 }
 
 /* Desktop/Large styles */
