@@ -872,7 +872,7 @@ input[list] {
 
 .help-section p {
   margin-bottom: 1.5rem;
-  font-size: 18px;
+  font-size: 1.1rem;
   line-height: 1.6;
 }
 
@@ -888,7 +888,7 @@ input[list] {
 }
 
 .action-steps h3 {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   font-weight: 700;
   margin-bottom: 1rem;
 }
@@ -900,9 +900,9 @@ input[list] {
 
 .action-steps ul li {
   margin-bottom: 0.5rem;
-  line-height: 1.6;
+  line-height: 1.5;
   padding-left: 0.5rem;
-  font-size: 18px;
+  font-size: inherit;
 }
 
 /* Mobile adjustments */
