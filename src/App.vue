@@ -860,17 +860,17 @@ input[list] {
 }
 
 .help-content a {
-  color: #4CAF50;
+  color: #121212;
   text-decoration: underline;
   transition: color 0.2s ease;
 }
 
 .help-content a:visited {
-  color: #4CAF50;
+  color: #121212;
 }
 
 .help-content a:hover {
-  color: #121212;
+  color: #4CAF50;
 }
 
 .help-section {
