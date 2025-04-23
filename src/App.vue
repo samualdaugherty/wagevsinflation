@@ -699,12 +699,19 @@ h2 {
     position: sticky;
     top: 0;
     overflow-y: hidden;
+    width: 50vw;
+    flex: none;
     box-shadow: 51px 0px 80px 0px rgba(0, 0, 0, 0.12),
                 33.056px 0px 46.852px 0px rgba(0, 0, 0, 0.09),
                 19.644px 0px 25.481px 0px rgba(0, 0, 0, 0.07),
                 10.2px 0px 13px 0px rgba(0, 0, 0, 0.06),
                 4.156px 0px 6.519px 0px rgba(0, 0, 0, 0.05),
                 0.944px 0px 3.148px 0px rgba(0, 0, 0, 0.03);
+  }
+
+  .right-panel {
+    width: 50vw;
+    flex: none;
   }
 
   .left-panel .content-wrapper {
