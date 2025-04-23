@@ -894,13 +894,14 @@ input[list] {
 }
 
 .action-steps ul {
-  list-style: none;
-  padding-left: 0;
+  list-style: disc;
+  padding-left: 1.5rem;
 }
 
 .action-steps ul li {
   margin-bottom: 0.5rem;
   line-height: 1.5;
+  padding-left: 0.5rem;
 }
 
 /* Mobile adjustments */
