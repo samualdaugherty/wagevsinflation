@@ -651,7 +651,7 @@ h2 {
 }
 
 /* Mobile styles */
-@media (max-width: 768px) {
+@media (max-width: 996px) {
   .app-container {
     flex-direction: column;
   }
@@ -693,7 +693,7 @@ h2 {
 }
 
 /* Desktop styles */
-@media (min-width: 769px) {
+@media (min-width: 997px) {
   .left-panel {
     height: 100vh;
     position: sticky;
