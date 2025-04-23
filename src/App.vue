@@ -650,29 +650,6 @@ h2 {
   cursor: not-allowed;
 }
 
-/* Desktop styles */
-@media (min-width: 769px) {
-  .left-panel {
-    height: 100vh;
-    position: sticky;
-    top: 0;
-    overflow-y: hidden;
-    box-shadow: 51px 0px 80px 0px rgba(0, 0, 0, 0.12),
-                33.056px 0px 46.852px 0px rgba(0, 0, 0, 0.09),
-                19.644px 0px 25.481px 0px rgba(0, 0, 0, 0.07),
-                10.2px 0px 13px 0px rgba(0, 0, 0, 0.06),
-                4.156px 0px 6.519px 0px rgba(0, 0, 0, 0.05),
-                0.944px 0px 3.148px 0px rgba(0, 0, 0, 0.03);
-  }
-
-  .left-panel .content-wrapper {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-}
-
 /* Mobile styles */
 @media (max-width: 768px) {
   .app-container {
@@ -682,6 +659,12 @@ h2 {
   .left-panel {
     padding: 2rem;
     border-radius: 0 0 48px 48px;
+    box-shadow: -2.094px 53.959px 80px 0px rgba(0, 0, 0, 0.10),
+                -1.357px 34.974px 46.852px 0px rgba(0, 0, 0, 0.08),
+                -0.807px 20.784px 25.481px 0px rgba(0, 0, 0, 0.06),
+                -0.419px 10.792px 13px 0px rgba(0, 0, 0, 0.05),
+                -0.171px 4.397px 6.519px 0px rgba(0, 0, 0, 0.04),
+                -0.039px 0.999px 3.148px 0px rgba(0, 0, 0, 0.02);
   }
   
   .right-panel {
@@ -706,6 +689,29 @@ h2 {
   .inline-inputs {
     width: 100%;
     max-width: none;
+  }
+}
+
+/* Desktop styles */
+@media (min-width: 769px) {
+  .left-panel {
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    overflow-y: hidden;
+    box-shadow: 51px 0px 80px 0px rgba(0, 0, 0, 0.12),
+                33.056px 0px 46.852px 0px rgba(0, 0, 0, 0.09),
+                19.644px 0px 25.481px 0px rgba(0, 0, 0, 0.07),
+                10.2px 0px 13px 0px rgba(0, 0, 0, 0.06),
+                4.156px 0px 6.519px 0px rgba(0, 0, 0, 0.05),
+                0.944px 0px 3.148px 0px rgba(0, 0, 0, 0.03);
+  }
+
+  .left-panel .content-wrapper {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 }
 
