@@ -478,6 +478,8 @@ body {
   display: flex;
   flex-direction: column;
   border-radius: 0 76px 76px 0;
+  z-index: 1080;
+  position: relative;
 }
 
 .right-panel {
