@@ -158,7 +158,7 @@
                     <li>Bring it to your manager or HR department during a performance or compensation review.</li>
                     <li>Frame it as "Here's how my wages have changed relative to inflation—I'd like to talk about how we can close that gap."</li>
                     <li>Keep it professional and fact-based, not emotional. You're not just asking for a raise—you're advocating for fair compensation.</li>
-                    <li>Financial expert and author, Ramit Sethi, has a great video on how to negotiate for a raise, including scripts you can follow here.</li>
+                    <li>Financial expert and author, Ramit Sethi, has a great video on how to negotiate for a raise, including scripts you can follow <a href="https://youtu.be/KOr3sbYPAW4?si=Yx8U9gKVjN_CGe5G" target="_blank">here</a>.</li>
                   </ul>
                 </li>
                 <li>
@@ -171,7 +171,7 @@
                 <li>
                   <h3>Research Market Rates</h3>
                   <ul>
-                    <li>Use sites like Glassdoor, Payscale, or Levels.fyi to see what others in similar roles are earning in your industry and region.</li>
+                    <li>Use sites like <a href="https://glassdoor.com" target="_blank">Glassdoor</a>, <a href="https://payscale.com" target="_blank">Payscale</a>, or <a href="https://levels.fyi" target="_blank">Levels.fyi</a> to see what others in similar roles are earning in your industry and region.</li>
                     <li>Having market data alongside your inflation data can strengthen your case for a raise and help range.</li>
                   </ul>
                 </li>
