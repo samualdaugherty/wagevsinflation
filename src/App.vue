@@ -859,6 +859,20 @@ input[list] {
   padding-top: 4rem;
 }
 
+.help-content a {
+  color: #4CAF50;
+  text-decoration: underline;
+  transition: color 0.2s ease;
+}
+
+.help-content a:visited {
+  color: #4CAF50;
+}
+
+.help-content a:hover {
+  color: #121212;
+}
+
 .help-section {
   margin-bottom: 3rem;
 }
