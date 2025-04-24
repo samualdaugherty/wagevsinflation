@@ -19,6 +19,7 @@
                 placeholder="month" 
                 required
                 list="months"
+                class="bg-transparent border-b border-white text-white placeholder:text-[#A5D6A7] focus:outline-none focus:ring-0 focus:border-white w-[120px]"
               >
               <datalist id="months">
                 <option v-for="m in months" :key="m" :value="m" />
@@ -29,6 +30,7 @@
                 v-model="year" 
                 :placeholder="validYearRange.min + ' - ' + validYearRange.max" 
                 required
+                class="bg-transparent border-b border-white text-white placeholder:text-[#A5D6A7] focus:outline-none focus:ring-0 focus:border-white w-[140px]"
               >
               <span>.</span>
             </div>
@@ -43,6 +45,7 @@
                 @input="handleStartingSalaryInput"
                 placeholder="dollars" 
                 required
+                class="bg-transparent border-b border-white text-white placeholder:text-[#A5D6A7] focus:outline-none focus:ring-0 focus:border-white w-[120px]"
               >
               <span>per year.</span>
             </div>
@@ -57,6 +60,7 @@
                 @input="handleCurrentSalaryInput"
                 placeholder="dollars" 
                 required
+                class="bg-transparent border-b border-white text-white placeholder:text-[#A5D6A7] focus:outline-none focus:ring-0 focus:border-white w-[120px]"
               >
               <span>per year.</span>
             </div>
@@ -613,6 +617,10 @@ body {
 }
 
 input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 0;
   background: transparent;
   border: none;
   border-bottom: 1px solid #ffffff;
@@ -929,5 +937,15 @@ input[list] {
     margin-top: 3rem;
     padding-top: 3rem;
   }
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
 }
 </style>
